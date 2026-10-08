@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>桃園假日親子活動</title>
+  <meta name="description" content="桃園週末、假日親子景點與活動整理：可依日期區間、類型篩選，並記錄自己的評價。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="badge">桃園・親子・假日</span>
+      <h1>把週末，<br>留給孩子的笑聲。</h1>
+      <p class="en">Make every weekend count.</p>
+      <a class="cta" href="#finder">開始找活動</a>
+    </div>
+    <svg class="hills" viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true">
+      <circle cx="930" cy="70" r="70" fill="#ffe66d"/>
+      <path d="M0 110 Q 200 30 420 90 T 860 80 T 1200 70 V160 H0Z" fill="#ffd9c9"/>
+      <path d="M0 140 Q 300 80 600 130 T 1200 120 V160 H0Z" fill="#fdf6ea"/>
+    </svg>
+  </header>
+
+  <main id="finder">
+    <section class="panel filters" aria-label="篩選">
+      <div class="field">
+        <label for="search">搜尋名稱</label>
+        <input type="search" id="search" placeholder="例如：虎頭山、美術館、大溪">
+      </div>
+
+      <div class="field">
+        <span class="lbl">選擇日期（可選一段）</span>
+        <button type="button" id="dateToggle" class="pill-btn" aria-expanded="false" aria-controls="calendar">
+          <span id="dateSummary">全部日期</span>
+        </button>
+        <div id="calendar" class="calendar" hidden>
+          <div class="cal-head">
+            <button type="button" id="prevMonth" aria-label="上個月">‹</button>
+            <strong id="monthTitle"></strong>
+            <button type="button" id="nextMonth" aria-label="下個月">›</button>
+          </div>
+          <div class="cal-week"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div>
+          <div id="calGrid" class="cal-grid"></div>
+          <p class="cal-hint">先點開始日，再點結束日；只點一天就是單日。<span class="dot-legend">●</span> 代表當天有限時活動。</p>
+          <div class="cal-actions">
+            <button type="button" id="clearDate" class="link-btn">清除日期</button>
+            <button type="button" id="closeCal" class="mini-btn">完成</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="chips" id="typeChips" role="group" aria-label="活動類型">
+        <button class="chip active" data-type="all">全部</button>
+        <button class="chip" data-type="outdoor">🌳 戶外／農場</button>
+        <button class="chip" data-type="indoor">🏠 室內／展館</button>
+        <button class="chip" data-type="craft">🎨 手作／體驗</button>
+        <button class="chip" data-type="festival">🎪 節慶／市集</button>
+      </div>
+      <label class="free"><input type="checkbox" id="freeOnly"> 只看免費</label>
+    </section>
+
+    <p id="count" class="count" aria-live="polite"></p>
+    <section id="list" class="grid"></section>
+    <p id="empty" class="empty" hidden>找不到符合的活動，換個條件試試。</p>
+  </main>
+
+  <footer>
+    <p>開放時間、票價與活動日期可能異動，出發前請至官方網站或粉絲專頁確認。</p>
+    <p>🕒 資料最後更新：<time id="lastUpdated"></time>（本站為人工整理，不會自動更新）</p>
+    <p>評價只儲存在你自己的瀏覽器，不會上傳。</p>
+    <p class="credit-note">圖片來自維基共享資源（Wikimedia Commons），授權與作者標示在各卡片上。尚無可自由使用照片的景點，以插圖代替。</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
